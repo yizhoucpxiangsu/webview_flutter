@@ -21,7 +21,10 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter_android: ^3.16.0
+  webview_flutter_android:
+    git:
+      url: https://github.com/yizhoucpxiangsu/webview_flutter/tree/main/webview_flutter_android
+      ref: main
   webview_flutter_platform_interface: ^2.10.0
   webview_flutter_wkwebview: ^3.15.0
 
