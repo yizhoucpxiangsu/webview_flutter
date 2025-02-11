@@ -6,7 +6,10 @@ package io.flutter.plugins.webviewflutter;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.webkit.JavascriptInterface;
+
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -43,6 +46,7 @@ public class JavaScriptChannel {
 
   // Suppressing unused warning as this is invoked from JavaScript.
   @SuppressWarnings("unused")
+  @Keep
   @JavascriptInterface
   public void postMessage(@NonNull final String message) {
     final Runnable postMessageRunnable =
@@ -55,8 +59,12 @@ public class JavaScriptChannel {
     }
   }
 
+  // Suppressing unused warning as this is invoked from JavaScript.
+  @SuppressWarnings("unused")
+  @Keep
   @JavascriptInterface
-  public void call(@Nullable final String methodName, @Nullable final String argStr) {
+  public void call(String methodName,String argStr) {
+    Log.d("JavaScriptChannel", "call");
     String jsonString = "{}";
     try {
       JSONObject json = new JSONObject();
